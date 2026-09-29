@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@keyframes wave-bounce {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-wave-1 {
+  animation: wave-bounce 0.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.animate-wave-2 {
+  animation: wave-bounce 0.8s ease-in-out infinite 0.15s;
+  transform-origin: bottom;
+}
+
+.animate-wave-3 {
+  animation: wave-bounce 0.8s ease-in-out infinite 0.3s;
+  transform-origin: bottom;
+}
+
+.animate-wave-4 {
+  animation: wave-bounce 0.8s ease-in-out infinite 0.45s;
+  transform-origin: bottom;
+}
+

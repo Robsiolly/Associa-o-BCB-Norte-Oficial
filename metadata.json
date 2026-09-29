@@ -1,0 +1,6 @@
+{
+  "name": "BCB Norte - Bombeiros Mirins",
+  "description": "Seção Hero premium e cinematográfica da Associação de Bombeiros Mirins BCB Norte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
