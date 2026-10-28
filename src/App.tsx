@@ -13,7 +13,6 @@ import { OfflineIndicator } from './components/OfflineIndicator';
 import { FireEmbersCanvas } from './components/FireEmbersCanvas';
 import { AudioController } from './components/AudioController';
 import { InteractiveSection } from './components/InteractiveSection';
-import { GalleryPage } from './components/GalleryPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +31,6 @@ export default function App() {
 
   // Active step state to reflect real-time scroll progress (0, 1, 2, 3)
   const [activeStep, setActiveStep] = useState(0);
-  const [galleryOpen, setGalleryOpen] = useState(false);
 
   // References for the 4 moment text containers
   const moment1Ref = useRef<HTMLDivElement>(null);
@@ -507,7 +505,7 @@ export default function App() {
 
   return (
     <div className="relative bg-black font-sans overflow-x-hidden min-h-screen select-none">
-      <Header onOpenGallery={() => setGalleryOpen(true)} />
+      <Header />
       <AudioController activeStep={activeStep} />
 
       {/* 280vh Scroll Timeline Wrapper */}
@@ -757,10 +755,6 @@ export default function App() {
       </div>
 
       <InteractiveSection />
-      
-      {galleryOpen ? (
-        <GalleryPage onBack={() => setGalleryOpen(false)} />
-      ) : null}
     </div>
   );
 }
