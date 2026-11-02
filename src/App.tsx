@@ -678,7 +678,7 @@ export default function App() {
                       href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20fazer%20parte%20da%20missão%20do%20Bombeiro%20Mirim%20BCB%20Norte!"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase shadow-xl shadow-red-600/30 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-center cursor-pointer whitespace-nowrap"
+                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl glass-btn-primary text-white font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase shadow-xl transition-all duration-300 text-center cursor-pointer whitespace-nowrap"
                     >
                       FAÇA PARTE
                     </a>
@@ -686,7 +686,7 @@ export default function App() {
                       href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20conhecer%20mais%20sobre%20a%20Associação%20BCB%20Norte!"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl border border-amber-500/40 hover:border-amber-500 bg-black/40 hover:bg-amber-500/10 text-amber-400 font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-center cursor-pointer whitespace-nowrap"
+                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl glass-btn-amber text-amber-300 font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase transition-all duration-300 text-center cursor-pointer whitespace-nowrap"
                     >
                       CONHEÇA A BCB NORTE
                     </a>
@@ -698,22 +698,22 @@ export default function App() {
 
           </div>
 
-          {/* ELEGANT INTERACTIVE HUD STEP CONTROLLER */}
+          {/* ELEGANT INTERACTIVE HUD STEP CONTROLLER (Liquid Glass Bar & Buttons) */}
           <div className="absolute bottom-2.5 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 sm:gap-2 pointer-events-auto w-[94vw] sm:w-auto max-w-[96vw]">
-            {/* Step Status Chip */}
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/85 border border-white/15 backdrop-blur-md text-[9px] sm:text-xs font-mono text-white/90 shadow-xl">
+            {/* Step Status Chip (Glass Bar) */}
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full glass-bar text-[9px] sm:text-xs font-mono text-white/90 shadow-xl">
               <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500 animate-ping shrink-0" />
               <span className="text-white/70 font-medium whitespace-nowrap">Etapa {activeStep + 1} de 4</span>
               <span className="w-1 h-1 rounded-full bg-white/30 shrink-0" />
               <span className="text-amber-400 font-semibold truncate max-w-[140px] sm:max-w-none">{STEPS[activeStep]?.label.substring(3)}</span>
             </div>
 
-            {/* Pill Steps Navigation */}
-            <div className="flex items-center justify-between sm:justify-center w-full sm:w-auto gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl bg-black/80 border border-white/15 backdrop-blur-xl shadow-2xl">
+            {/* Pill Steps Navigation (Liquid Glass Bar) */}
+            <div className="flex items-center justify-between sm:justify-center w-full sm:w-auto gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl glass-bar shadow-2xl">
               <button
                 onClick={prevStep}
                 title="Etapa anterior"
-                className="p-1.5 sm:p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center shrink-0"
+                className="p-1.5 sm:p-2 rounded-xl glass-btn text-white/80 hover:text-white transition-colors cursor-pointer min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center shrink-0"
                 aria-label="Etapa anterior"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -728,8 +728,8 @@ export default function App() {
                       onClick={() => goToStep(step.index)}
                       className={`px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-xl font-mono text-[9px] sm:text-[11px] font-semibold transition-all duration-300 cursor-pointer min-h-[30px] sm:min-h-[32px] flex items-center justify-center whitespace-nowrap ${
                         isActive
-                          ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-lg shadow-red-600/30 scale-105'
-                          : 'text-white/60 hover:text-white hover:bg-white/5'
+                          ? 'glass-btn-primary text-white scale-105'
+                          : 'glass-btn text-white/60 hover:text-white'
                       }`}
                     >
                       <span className="hidden sm:inline">{step.label}</span>
@@ -742,7 +742,7 @@ export default function App() {
               <button
                 onClick={nextStep}
                 title="Próxima etapa"
-                className="p-1.5 sm:p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center shrink-0"
+                className="p-1.5 sm:p-2 rounded-xl glass-btn text-white/80 hover:text-white transition-colors cursor-pointer min-w-[32px] min-h-[32px] sm:min-w-[36px] sm:min-h-[36px] flex items-center justify-center shrink-0"
                 aria-label="Próxima etapa"
               >
                 <ChevronRight className="w-4 h-4" />

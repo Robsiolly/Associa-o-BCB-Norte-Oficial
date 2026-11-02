@@ -19,9 +19,9 @@ export function FormacaoPage() {
         <div className="mb-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white font-mono text-xs tracking-widest transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass-btn text-white font-mono text-xs tracking-widest transition-all"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-amber-400" />
             VOLTAR AO INÍCIO
           </Link>
         </div>
@@ -65,7 +65,7 @@ export function FormacaoPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-950/40 to-amber-950/40 border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-6 rounded-2xl glass-bar flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-mono font-bold text-blue-400 text-sm mb-1 uppercase tracking-wider">Faça parte da nossa missão</h4>
               <p className="text-xs text-white/70">Entre em contato agora mesmo e apoie a formação de novos líderes.</p>
@@ -74,7 +74,7 @@ export function FormacaoPage() {
               href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20Formação%20no%20Bombeiro%20Mirim%20BCB%20Norte!"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-bold tracking-widest uppercase shadow-lg shadow-blue-600/30 transition-all whitespace-nowrap"
+              className="px-6 py-3 rounded-xl glass-btn-primary text-white font-mono text-xs font-bold tracking-widest uppercase shadow-lg transition-all whitespace-nowrap cursor-pointer"
             >
               FALAR NO WHATSAPP
             </a>

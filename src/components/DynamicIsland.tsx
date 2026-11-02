@@ -78,7 +78,7 @@ export const DynamicIsland = () => {
           damping: 24,
         }}
         style={{ borderRadius: '24px' }}
-        className={`pointer-events-auto flex items-center justify-center bg-black/85 backdrop-blur-2xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.6)] text-white select-none ${
+        className={`pointer-events-auto flex items-center justify-center glass-bar text-white select-none ${
           isExpanded 
             ? 'px-5 py-3.5 max-w-[340px] sm:max-w-[420px] w-auto h-auto' 
             : 'px-3 py-1.5 w-[140px] h-[34px]'

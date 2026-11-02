@@ -19,9 +19,9 @@ export function ProtecaoPage() {
         <div className="mb-8">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white font-mono text-xs tracking-widest transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass-btn text-white font-mono text-xs tracking-widest transition-all"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-amber-400" />
             VOLTAR AO INÍCIO
           </Link>
         </div>
@@ -65,7 +65,7 @@ export function ProtecaoPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-amber-950/40 to-red-950/40 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="p-6 rounded-2xl glass-bar flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <h4 className="font-mono font-bold text-amber-400 text-sm mb-1 uppercase tracking-wider">Conheça nosso projeto</h4>
               <p className="text-xs text-white/70">Tire suas dúvidas ou agende uma visita com nossa coordenação.</p>
@@ -74,7 +74,7 @@ export function ProtecaoPage() {
               href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20Proteção%20Civil%20no%20Bombeiro%20Mirim%20BCB%20Norte!"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold tracking-widest uppercase shadow-lg shadow-amber-500/30 transition-all whitespace-nowrap"
+              className="px-6 py-3 rounded-xl glass-btn-primary text-white font-mono text-xs font-bold tracking-widest uppercase shadow-lg transition-all whitespace-nowrap cursor-pointer"
             >
               FALAR NO WHATSAPP
             </a>

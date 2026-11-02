@@ -213,8 +213,8 @@ export const InteractiveSection = () => {
                     }}
                     className={`relative w-16 sm:w-20 h-16 sm:h-20 rounded-full flex items-center justify-center cursor-pointer transition-all ${
                       isSelected 
-                        ? 'bg-gradient-to-br from-amber-500/20 to-red-600/30 border-2 border-amber-500 shadow-lg' 
-                        : 'bg-zinc-900 border border-zinc-800 hover:border-amber-500/50'
+                        ? 'glass-btn-amber shadow-lg' 
+                        : 'glass-btn'
                     }`}
                     title={badge.title}
                   >
@@ -285,17 +285,17 @@ export const InteractiveSection = () => {
                     const isSelected = selectedOption === idx;
                     const isCorrectOption = QUESTIONS[currentQuestionIndex].correctIndex === idx;
                     
-                    let btnStyle = "border-zinc-800/80 bg-zinc-950/40 hover:bg-zinc-900 hover:border-zinc-700 text-zinc-300";
+                    let btnStyle = "glass-btn text-zinc-300";
                     if (isAnswered) {
                       if (isCorrectOption) {
-                        btnStyle = "border-emerald-500/40 bg-emerald-950/20 text-emerald-400";
+                        btnStyle = "border-emerald-500/60 bg-emerald-950/40 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.2)]";
                       } else if (isSelected) {
-                        btnStyle = "border-red-500/40 bg-red-950/20 text-red-400";
+                        btnStyle = "border-red-500/60 bg-red-950/40 text-red-300 shadow-[0_0_15px_rgba(239,68,68,0.2)]";
                       } else {
-                        btnStyle = "border-zinc-800/40 bg-zinc-950/10 text-zinc-600 pointer-events-none";
+                        btnStyle = "border-zinc-800/40 bg-zinc-950/10 text-zinc-600 pointer-events-none opacity-40";
                       }
                     } else if (isSelected) {
-                      btnStyle = "border-amber-500 bg-amber-500/10 text-amber-400";
+                      btnStyle = "glass-btn-amber text-amber-300";
                     }
 
                     return (
@@ -341,8 +341,8 @@ export const InteractiveSection = () => {
                       disabled={selectedOption === null}
                       className={`px-5 py-2.5 rounded-xl font-bold font-mono text-[10px] sm:text-[11px] uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
                         selectedOption !== null
-                          ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white hover:opacity-90 shadow-md'
-                          : 'bg-zinc-800 text-zinc-500 pointer-events-none'
+                          ? 'glass-btn-primary text-white'
+                          : 'glass-btn text-zinc-500 pointer-events-none opacity-50'
                       }`}
                     >
                       Confirmar Escolha
@@ -351,7 +351,7 @@ export const InteractiveSection = () => {
                   ) : (
                     <button
                       onClick={nextQuestion}
-                      className="px-5 py-2.5 rounded-xl font-bold font-mono text-[10px] sm:text-[11px] bg-white text-black hover:bg-zinc-100 uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer shadow-md"
+                      className="px-5 py-2.5 rounded-xl font-bold font-mono text-[10px] sm:text-[11px] glass-btn text-white uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
                     >
                       {currentQuestionIndex === QUESTIONS.length - 1 ? 'Ver Resultado' : 'Próxima Questão'}
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -378,7 +378,7 @@ export const InteractiveSection = () => {
                 <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
                   <button
                     onClick={restartSimulator}
-                    className="flex-1 px-4 py-3 rounded-xl border border-zinc-800 hover:border-zinc-700 bg-zinc-950/40 hover:bg-zinc-900 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="flex-1 px-4 py-3 rounded-xl glass-btn font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
                     Recomeçar Teste
@@ -389,7 +389,7 @@ export const InteractiveSection = () => {
                       // Smooth scroll up to top registration buttons
                       document.getElementById('hero-scroll-container')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:opacity-90 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-lg shadow-red-600/20 text-white"
+                    className="flex-1 px-4 py-3 rounded-xl glass-btn-primary font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer text-white"
                   >
                     Inscrever Aluno
                     <ArrowRight className="w-3.5 h-3.5" />

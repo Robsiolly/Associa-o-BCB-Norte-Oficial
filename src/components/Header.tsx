@@ -63,7 +63,7 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-xl border-b border-white/15 transition-all duration-300">
+    <header className="sticky top-0 z-40 w-full glass-bar transition-all duration-300">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-2">
         
         {/* Brand Logo & Title */}
@@ -94,38 +94,38 @@ export default function Header() {
         </div>
 
         {/* Navigation Subpages Links (Desktop & Tablet) */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-4 text-[10px] lg:text-[11px] font-mono tracking-[0.15em] text-white/80 shrink-0">
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-3 text-[10px] lg:text-[11px] font-mono tracking-[0.15em] text-white/80 shrink-0">
           <Link
             to="/"
-            className={`px-2.5 py-1.5 rounded-lg transition-all hover:bg-white/10 ${location.pathname === '/' ? 'text-white font-bold bg-white/10' : 'text-white/70'}`}
+            className={`px-3 py-1.5 rounded-xl transition-all ${location.pathname === '/' ? 'glass-btn text-white font-bold' : 'glass-btn text-white/70 hover:text-white'}`}
           >
             INÍCIO
           </Link>
           <span className="text-amber-500/30">•</span>
           <Link
             to="/disciplina"
-            className={`px-2.5 py-1.5 rounded-lg transition-all hover:bg-white/10 ${location.pathname === '/disciplina' ? 'text-red-400 font-bold bg-red-950/30 border border-red-500/30' : 'text-white/70'}`}
+            className={`px-3 py-1.5 rounded-xl transition-all ${location.pathname === '/disciplina' ? 'glass-btn-amber text-red-400 font-bold' : 'glass-btn text-white/70 hover:text-red-400'}`}
           >
             DISCIPLINA
           </Link>
           <span className="text-amber-500/30">•</span>
           <Link
             to="/protecao"
-            className={`px-2.5 py-1.5 rounded-lg transition-all hover:bg-white/10 ${location.pathname === '/protecao' ? 'text-amber-400 font-bold bg-amber-950/30 border border-amber-500/30' : 'text-white/70'}`}
+            className={`px-3 py-1.5 rounded-xl transition-all ${location.pathname === '/protecao' ? 'glass-btn-amber text-amber-400 font-bold' : 'glass-btn text-white/70 hover:text-amber-400'}`}
           >
             PROTEÇÃO
           </Link>
           <span className="text-amber-500/30">•</span>
           <Link
             to="/formacao"
-            className={`px-2.5 py-1.5 rounded-lg transition-all hover:bg-white/10 ${location.pathname === '/formacao' ? 'text-blue-400 font-bold bg-blue-950/30 border border-blue-500/30' : 'text-white/70'}`}
+            className={`px-3 py-1.5 rounded-xl transition-all ${location.pathname === '/formacao' ? 'glass-btn text-blue-400 font-bold border-blue-500/40' : 'glass-btn text-white/70 hover:text-blue-400'}`}
           >
             FORMAÇÃO
           </Link>
           <span className="text-amber-500/30">•</span>
           <Link
             to="/galeria"
-            className={`px-3 py-1.5 rounded-lg font-bold transition-all shadow-md ${location.pathname === '/galeria' ? 'bg-amber-500 text-black shadow-amber-500/30' : 'bg-amber-500/20 border border-amber-500/50 text-amber-300 hover:bg-amber-500/30'}`}
+            className={`px-3.5 py-1.5 rounded-xl font-bold transition-all ${location.pathname === '/galeria' ? 'glass-btn-primary text-white' : 'glass-btn-amber text-amber-300'}`}
           >
             GALERIA
           </Link>
@@ -133,9 +133,9 @@ export default function Header() {
 
         {/* Header CTA Buttons and Status Indicators */}
         <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
-          {/* Active tactical QAP Clock in Header */}
+          {/* Active tactical QAP Clock in Header (Glass pill) */}
           {time && (
-            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-500/15 bg-amber-500/5 text-amber-400 font-mono text-[10px] tracking-widest uppercase font-bold whitespace-nowrap">
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl glass-btn text-amber-400 font-mono text-[10px] tracking-widest uppercase font-bold whitespace-nowrap">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping shrink-0" />
               QAP • {time}
             </div>
@@ -145,16 +145,16 @@ export default function Header() {
             href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20contribuir%20com%20o%20Bombeiro%20Mirim%20BCB%20Norte!"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex relative overflow-hidden px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10 text-amber-400 font-mono text-[9px] sm:text-[10px] tracking-[0.15em] font-medium transition-all duration-300 hover:border-amber-500 hover:shadow-[0_0_15px_rgba(245,158,11,0.15)] items-center gap-1.5 whitespace-nowrap"
+            className="hidden sm:flex relative overflow-hidden px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl glass-btn-amber text-amber-300 font-mono text-[9px] sm:text-[10px] tracking-[0.15em] font-medium transition-all duration-300 items-center gap-1.5 whitespace-nowrap"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>CONTRIBUIR</span>
           </a>
 
-          {/* Tactical Hamburger Button */}
+          {/* Tactical Hamburger Button (Liquid Glass) */}
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="flex items-center justify-center w-11 h-11 rounded-xl border border-amber-500 bg-amber-500/10 hover:bg-amber-500/30 text-amber-400 transition-all duration-300 active:scale-95 cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.3)] z-50 relative"
+            className="flex items-center justify-center w-11 h-11 rounded-xl glass-btn-amber text-amber-400 transition-all duration-300 active:scale-95 cursor-pointer z-50 relative"
             aria-label="Abrir Menu"
           >
             <Menu className="w-6 h-6" />
@@ -176,11 +176,11 @@ export default function Header() {
 
           {/* Slide-over Panel Container */}
           <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
-            <div className="w-screen max-w-[360px] bg-zinc-950 border-l border-amber-500/40 p-6 flex flex-col justify-between shadow-[0_0_50px_rgba(0,0,0,0.9)] relative z-10 overflow-y-auto min-h-screen">
+            <div className="w-screen max-w-[360px] bg-zinc-950/95 backdrop-blur-2xl border-l border-white/20 p-6 flex flex-col justify-between shadow-[0_0_50px_rgba(0,0,0,0.9)] relative z-10 overflow-y-auto min-h-screen">
               
               <div className="flex flex-col gap-5">
-                {/* Drawer Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/15">
+                {/* Drawer Header Bar with Glass Effect */}
+                <div className="flex items-center justify-between p-3.5 rounded-2xl glass-bar">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-amber-500 p-0.5">
                       <div className="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
@@ -194,19 +194,19 @@ export default function Header() {
                   </div>
                   <button
                     onClick={() => setIsMenuOpen(false)}
-                    className="w-9 h-9 rounded-xl border border-white/20 bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
+                    className="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white cursor-pointer"
                     aria-label="Fechar Menu"
                   >
                     <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Vertical Subpage Links in Mobile Menu */}
+                {/* Vertical Subpage Links in Mobile Menu (Glass Buttons) */}
                 <nav className="flex flex-col gap-2">
                   <Link
                     to="/"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3.5 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-mono font-bold tracking-[0.15em] text-white hover:bg-white/10 transition-all flex items-center gap-2.5"
+                    className="px-4 py-3 rounded-xl glass-btn text-xs font-mono font-bold tracking-[0.15em] text-white flex items-center gap-2.5"
                   >
                     <Home className="w-4 h-4 text-amber-400" />
                     PÁGINA INÍCIO
@@ -215,16 +215,16 @@ export default function Header() {
                   <Link
                     to="/disciplina"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3.5 py-3 rounded-xl bg-red-950/40 border border-red-500/40 text-xs font-mono font-bold tracking-[0.15em] text-red-300 hover:bg-red-900/40 transition-all flex items-center gap-2.5"
+                    className="px-4 py-3 rounded-xl glass-btn-primary text-xs font-mono font-bold tracking-[0.15em] text-white flex items-center gap-2.5"
                   >
-                    <Shield className="w-4 h-4 text-red-500" />
+                    <Shield className="w-4 h-4 text-white" />
                     DISCIPLINA &amp; ORDEM
                   </Link>
 
                   <Link
                     to="/protecao"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3.5 py-3 rounded-xl bg-amber-950/40 border border-amber-500/40 text-xs font-mono font-bold tracking-[0.15em] text-amber-300 hover:bg-amber-900/40 transition-all flex items-center gap-2.5"
+                    className="px-4 py-3 rounded-xl glass-btn-amber text-xs font-mono font-bold tracking-[0.15em] text-amber-300 flex items-center gap-2.5"
                   >
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     PROTEÇÃO CIVIL
@@ -233,7 +233,7 @@ export default function Header() {
                   <Link
                     to="/formacao"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3.5 py-3 rounded-xl bg-blue-950/40 border border-blue-500/40 text-xs font-mono font-bold tracking-[0.15em] text-blue-300 hover:bg-blue-900/40 transition-all flex items-center gap-2.5"
+                    className="px-4 py-3 rounded-xl glass-btn text-xs font-mono font-bold tracking-[0.15em] text-blue-300 border-blue-500/40 flex items-center gap-2.5"
                   >
                     <Award className="w-4 h-4 text-blue-400" />
                     FORMAÇÃO INTEGRAL
@@ -242,7 +242,7 @@ export default function Header() {
                   <Link
                     to="/galeria"
                     onClick={() => setIsMenuOpen(false)}
-                    className="px-3.5 py-3 rounded-xl bg-amber-500/25 border border-amber-500/60 text-xs font-mono font-bold tracking-[0.15em] text-amber-200 hover:bg-amber-500/35 transition-all flex items-center gap-2.5 shadow-md"
+                    className="px-4 py-3.5 rounded-xl glass-btn-primary text-xs font-mono font-bold tracking-[0.15em] text-white flex items-center gap-2.5 shadow-lg"
                   >
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
                     GALERIA DE FOTOS &amp; VÍDEOS
@@ -253,9 +253,9 @@ export default function Header() {
                 <div className="flex flex-col gap-2 pt-3 border-t border-white/15 font-mono">
                   <span className="text-[9px] text-white/50 tracking-widest font-semibold uppercase px-1">STATUS TÁTICO</span>
                   
-                  {/* QAP Clock */}
+                  {/* QAP Clock glass pill */}
                   {time && (
-                    <div className="flex items-center justify-between px-3 py-2.5 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 text-[11px] tracking-widest font-bold">
+                    <div className="flex items-center justify-between px-3 py-2.5 rounded-xl glass-btn text-amber-400 text-[11px] tracking-widest font-bold">
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping shrink-0" />
                         QAP ATIVO
@@ -264,7 +264,7 @@ export default function Header() {
                     </div>
                   )}
 
-                  <div className="flex items-center justify-between px-3 py-2.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-[11px] tracking-widest font-bold">
+                  <div className="flex items-center justify-between px-3 py-2.5 rounded-xl glass-btn text-emerald-400 text-[11px] tracking-widest font-bold">
                     <span className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                       ORG. ATIVA
@@ -274,16 +274,16 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Mobile Drawer Footer CTA */}
+              {/* Mobile Drawer Footer CTA Bar & Button */}
               <div className="pt-4 border-t border-white/15 flex flex-col gap-3 mt-4">
                 <a
                   href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20contribuir%20com%20o%20Bombeiro%20Mirim%20BCB%20Norte!"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all cursor-pointer text-center"
+                  className="w-full py-3.5 rounded-xl glass-btn-primary text-white font-mono text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 transition-all cursor-pointer text-center"
                 >
-                  <Sparkles className="w-4 h-4 fill-black" />
+                  <Sparkles className="w-4 h-4 fill-white" />
                   CONTRIBUIR VIA WHATSAPP
                 </a>
               </div>

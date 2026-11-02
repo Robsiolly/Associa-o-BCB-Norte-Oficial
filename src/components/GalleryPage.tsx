@@ -421,7 +421,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
           {onBack ? (
             <button
               onClick={onBack}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 hover:text-white font-mono text-xs tracking-wider transition-all group cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass-btn text-white font-mono text-xs tracking-wider transition-all group cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-amber-400" />
               <span>VOLTAR AO INÍCIO</span>
@@ -429,14 +429,14 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
           ) : (
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 hover:text-white font-mono text-xs tracking-wider transition-all group"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass-btn text-white font-mono text-xs tracking-wider transition-all group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-amber-400" />
               <span>VOLTAR AO INÍCIO</span>
             </Link>
           )}
 
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-xs font-bold tracking-widest uppercase">
+          <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-btn-amber text-amber-300 font-mono text-xs font-bold tracking-widest uppercase">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <span>26 FOTOS OFICIAIS</span>
           </div>
@@ -459,14 +459,14 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
         {/* ----------------- FEATURED CAROUSEL COMPONENT ----------------- */}
         <div className="mb-12 rounded-3xl border border-amber-500/30 bg-zinc-950/80 p-3 sm:p-6 backdrop-blur-xl shadow-[0_0_50px_rgba(245,158,11,0.12)]">
           
-          {/* Carousel Top Controls Bar */}
-          <div className="flex items-center justify-between gap-3 mb-4 px-2">
+          {/* Carousel Top Controls Bar with Glass Effect */}
+          <div className="flex items-center justify-between gap-3 mb-4 p-2.5 rounded-2xl glass-bar">
             <div className="flex items-center gap-2.5">
-              <span className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[11px] font-black tracking-widest uppercase">
-                <Sparkles className="w-3 h-3 text-red-400 animate-pulse" />
+              <span className="flex items-center gap-1.5 px-3 py-1 rounded-xl glass-btn-primary text-white font-mono text-[11px] font-black tracking-widest uppercase">
+                <Sparkles className="w-3 h-3 text-white animate-pulse" />
                 MODO CARROSSEL
               </span>
-              <span className="text-white/50 font-mono text-xs font-bold">
+              <span className="text-white/70 font-mono text-xs font-bold">
                 {String(carouselIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
               </span>
             </div>
@@ -474,7 +474,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white font-mono text-[10px] tracking-wider uppercase transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-3 py-1.5 rounded-xl glass-btn text-white font-mono text-[10px] tracking-wider uppercase transition-all flex items-center gap-1.5 cursor-pointer"
                 title={isPlaying ? "Pausar troca automática" : "Iniciar troca automática"}
               >
                 {isPlaying ? <Pause className="w-3 h-3 text-amber-400" /> : <Play className="w-3 h-3 text-emerald-400" />}
@@ -483,7 +483,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
 
               <button
                 onClick={() => setSelectedItem(currentSlide)}
-                className="px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 font-mono text-[10px] tracking-wider uppercase transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-3 py-1.5 rounded-xl glass-btn-amber text-amber-300 font-mono text-[10px] tracking-wider uppercase transition-all flex items-center gap-1.5 cursor-pointer"
                 title="Ampliar em tela cheia"
               >
                 <Maximize2 className="w-3 h-3" />
@@ -511,13 +511,13 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             {/* Gradient Vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none" />
 
-            {/* Navigation Arrows Inside Slide */}
+            {/* Navigation Arrows Inside Slide (Liquid Glass Buttons) */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevSlide();
               }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/75 hover:bg-amber-500 border border-white/20 hover:border-amber-400 text-white hover:text-black flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl z-20 group/arrow"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-btn text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl z-20 group/arrow"
               aria-label="Foto anterior"
             >
               <ChevronLeft className="w-6 h-6 group-hover/arrow:-translate-x-0.5 transition-transform" />
@@ -528,7 +528,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
                 e.stopPropagation();
                 handleNextSlide();
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/75 hover:bg-amber-500 border border-white/20 hover:border-amber-400 text-white hover:text-black flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl z-20 group/arrow"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-btn text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xl z-20 group/arrow"
               aria-label="Próxima foto"
             >
               <ChevronRight className="w-6 h-6 group-hover/arrow:translate-x-0.5 transition-transform" />
@@ -537,14 +537,14 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             {/* Slide Information Overlay */}
             <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-10 pointer-events-none">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-lg bg-amber-500 text-black font-mono text-[10px] font-black uppercase tracking-wider shadow-md">
+                <span className="px-2.5 py-0.5 rounded-lg glass-btn-primary text-white font-mono text-[10px] font-black uppercase tracking-wider shadow-md">
                   {currentSlide.categoryLabel}
                 </span>
-                <span className="flex items-center gap-1 text-[10px] sm:text-xs font-mono text-white/80 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-lg border border-white/10">
+                <span className="flex items-center gap-1 text-[10px] sm:text-xs font-mono text-white/90 glass-btn px-2.5 py-0.5 rounded-lg">
                   <Calendar className="w-3 h-3 text-amber-400" />
                   {currentSlide.date}
                 </span>
-                <span className="flex items-center gap-1 text-[10px] sm:text-xs font-mono text-white/80 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-lg border border-white/10">
+                <span className="flex items-center gap-1 text-[10px] sm:text-xs font-mono text-white/90 glass-btn px-2.5 py-0.5 rounded-lg">
                   <MapPin className="w-3 h-3 text-amber-400" />
                   {currentSlide.location}
                 </span>
@@ -559,7 +559,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             </div>
           </div>
 
-          {/* Interactive Thumbnails Filmstrip */}
+          {/* Interactive Thumbnails Filmstrip Bar with Glass Effect */}
           <div className="mt-4 pt-3 border-t border-white/10">
             <div className="flex items-center justify-between mb-2 px-1">
               <span className="text-[10px] font-mono text-white/50 tracking-widest uppercase">
@@ -572,7 +572,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
 
             <div 
               ref={thumbnailBarRef}
-              className="flex items-center gap-2 overflow-x-auto pb-2 scroll-smooth no-scrollbar"
+              className="flex items-center gap-2 overflow-x-auto pb-2 scroll-smooth no-scrollbar p-1.5 rounded-2xl glass-bar"
             >
               {items.map((item, idx) => {
                 const isCurrent = idx === carouselIndex;
@@ -583,7 +583,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
                     className={`relative shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                       isCurrent
                         ? 'border-amber-400 scale-105 shadow-[0_0_15px_rgba(245,158,11,0.5)] opacity-100 ring-2 ring-amber-500/40'
-                        : 'border-white/15 opacity-55 hover:opacity-100 hover:border-white/40'
+                        : 'glass-btn opacity-60 hover:opacity-100 hover:border-white/50'
                     }`}
                   >
                     <img
@@ -615,8 +615,8 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             </p>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
+          {/* Category Tabs (Liquid Glass Bar & Buttons) */}
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs p-1.5 rounded-2xl glass-bar">
             {[
               { id: 'all', label: 'TODOS', count: items.length },
               { id: 'treinamento', label: 'TREINAMENTOS', count: items.filter(i => i.category === 'treinamento').length },
@@ -628,12 +628,12 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 font-bold tracking-wider uppercase text-[10px] sm:text-xs cursor-pointer flex items-center gap-1.5 ${
                   activeTab === tab.id
-                    ? 'bg-amber-500 text-black shadow-[0_0_20px_rgba(245,158,11,0.3)]'
-                    : 'bg-white/5 hover:bg-white/10 text-white/70 border border-white/10'
+                    ? 'glass-btn-primary text-white shadow-lg'
+                    : 'glass-btn text-white/70 hover:text-white'
                 }`}
               >
                 <span>{tab.label}</span>
-                <span className={`px-1.5 py-0.2 rounded-md text-[9px] ${activeTab === tab.id ? 'bg-black/20 text-black font-black' : 'bg-white/10 text-white/50'}`}>
+                <span className={`px-1.5 py-0.2 rounded-md text-[9px] ${activeTab === tab.id ? 'bg-black/30 text-white font-black' : 'bg-white/10 text-white/60'}`}>
                   {tab.count}
                 </span>
               </button>
@@ -711,20 +711,20 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-5xl bg-zinc-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.95)] max-h-[95vh] flex flex-col"
           >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/60">
+            {/* Modal Header Bar with Glass Effect */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 glass-bar">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/40 text-amber-400 font-mono text-[10px] font-black uppercase tracking-wider">
+                <span className="px-2.5 py-0.5 rounded-md glass-btn-amber text-amber-300 font-mono text-[10px] font-black uppercase tracking-wider">
                   {selectedItem.categoryLabel}
                 </span>
-                <span className="text-white/50 font-mono text-xs">
+                <span className="text-white/70 font-mono text-xs">
                   {selectedItem.date}
                 </span>
               </div>
 
               <button
                 onClick={() => setSelectedItem(null)}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-red-600 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-9 h-9 rounded-full glass-btn text-white hover:text-red-400 flex items-center justify-center transition-colors cursor-pointer"
                 title="Fechar (Esc)"
               >
                 <X className="w-5 h-5" />
@@ -739,35 +739,35 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
                 className="max-h-full max-w-full object-contain"
               />
 
-              {/* Prev in Modal */}
+              {/* Prev in Modal (Glass Button) */}
               <button
                 onClick={() => {
                   const currIdx = items.findIndex(it => it.id === selectedItem.id);
                   const prevIdx = (currIdx - 1 + items.length) % items.length;
                   setSelectedItem(items[prevIdx]);
                 }}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-amber-500 border border-white/20 text-white hover:text-black flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-btn text-white flex items-center justify-center transition-colors cursor-pointer"
                 title="Foto anterior (seta esquerda)"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
-              {/* Next in Modal */}
+              {/* Next in Modal (Glass Button) */}
               <button
                 onClick={() => {
                   const currIdx = items.findIndex(it => it.id === selectedItem.id);
                   const nextIdx = (currIdx + 1) % items.length;
                   setSelectedItem(items[nextIdx]);
                 }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-amber-500 border border-white/20 text-white hover:text-black flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-btn text-white flex items-center justify-center transition-colors cursor-pointer"
                 title="Próxima foto (seta direita)"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Modal Information Footer */}
-            <div className="p-6 bg-zinc-900/90 border-t border-white/10 overflow-y-auto">
+            {/* Modal Information Footer Bar with Glass Effect */}
+            <div className="p-6 glass-bar-dark border-t border-white/10 overflow-y-auto">
               <h3 className="text-lg sm:text-xl font-mono font-bold uppercase tracking-wide text-white mb-2">
                 {selectedItem.title}
               </h3>

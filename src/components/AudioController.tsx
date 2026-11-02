@@ -173,7 +173,7 @@ export const AudioController = ({ activeStep }: AudioControllerProps) => {
   return (
     <button
       onClick={handleToggle}
-      className="fixed left-4 bottom-4 sm:left-6 sm:bottom-6 z-40 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-black/70 backdrop-blur-md border border-white/10 hover:border-amber-500/50 rounded-full text-white/90 transition-all duration-300 shadow-lg group hover:bg-black/95"
+      className="fixed left-4 bottom-4 sm:left-6 sm:bottom-6 z-40 flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 glass-btn rounded-full text-white/90 transition-all duration-300 shadow-lg group cursor-pointer"
       id="sound-control-button"
       title={isPlaying ? "Silenciar Trilha" : "Ativar Trilha Sonora"}
     >
@@ -185,7 +185,7 @@ export const AudioController = ({ activeStep }: AudioControllerProps) => {
         <span className={`w-0.5 bg-amber-500 rounded-full transition-all duration-300 ${isPlaying ? 'animate-wave-4 h-1.5' : 'h-2.5 bg-white/30'}`} />
       </div>
       
-      <span className="absolute left-12 bg-black/95 backdrop-blur-md border border-white/15 text-[9px] sm:text-[10px] text-white/90 px-2.5 py-1 rounded-md font-mono tracking-widest uppercase pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-2xl">
+      <span className="absolute left-12 glass-bar text-[9px] sm:text-[10px] text-white/90 px-2.5 py-1 rounded-md font-mono tracking-widest uppercase pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-2xl">
         {isPlaying ? 'SILENCIAR • HQ' : 'TRILHA SONORA'}
       </span>
     </button>
