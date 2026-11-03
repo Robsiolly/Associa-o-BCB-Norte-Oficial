@@ -183,10 +183,10 @@ export const InteractiveSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-stretch">
           
           {/* LEFT SLOT: Medalhas / Insígnias 3D (Grid Column: 5) */}
-          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/60 backdrop-blur-md shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 rounded-3xl glass-card-3d glass-card-gold glass-sheen shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
             
-            <div className="flex items-center gap-2 pb-4 border-b border-zinc-800">
+            <div className="flex items-center gap-2 pb-4 border-b border-white/10">
               <Award className="w-5 h-5 text-amber-500" />
               <h3 className="text-base sm:text-lg font-bold tracking-wide">INSÍGNIAS DE HONRA</h3>
             </div>
@@ -236,32 +236,32 @@ export const InteractiveSection = () => {
             </div>
 
             {/* Active Badge Detailed Card */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 flex flex-col gap-2 min-h-[140px] justify-center transition-all duration-300">
+            <div className="p-4 sm:p-5 rounded-2xl glass-bar flex flex-col gap-2 min-h-[140px] justify-center transition-all duration-300">
               <span className={`text-[10px] uppercase tracking-widest font-mono font-bold bg-gradient-to-r ${BADGES[activeBadgeInfo].color} bg-clip-text text-transparent`}>
                 BRONZE • PRATA • OURO
               </span>
               <h4 className="text-sm sm:text-base font-extrabold tracking-wide text-white">
                 {BADGES[activeBadgeInfo].title}
               </h4>
-              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+              <p className="text-xs text-white/70 leading-relaxed font-normal">
                 {BADGES[activeBadgeInfo].desc}
               </p>
             </div>
           </div>
 
           {/* RIGHT SLOT: Simulador Chamado do Herói (Grid Column: 7) */}
-          <div className="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/60 backdrop-blur-md shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-3xl glass-card-3d glass-card-red glass-sheen shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Header Area */}
-            <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-5">
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
               <div className="flex items-center gap-2">
                 <Volume2 className="w-5 h-5 text-red-500" />
                 <h3 className="text-base sm:text-lg font-bold tracking-wide uppercase">SIMULADOR: CHAMADO DO HERÓI</h3>
               </div>
               
               {!showResult && (
-                <span className="text-[10px] font-mono font-bold text-zinc-500">
+                <span className="text-[10px] font-mono font-bold text-white/50">
                   QUESTÃO {currentQuestionIndex + 1} DE {QUESTIONS.length}
                 </span>
               )}
@@ -272,7 +272,7 @@ export const InteractiveSection = () => {
               <div className="flex flex-col gap-5 flex-grow justify-center">
                 
                 {/* Scenario text */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-zinc-950/70 border border-zinc-800 text-xs sm:text-sm text-zinc-200 font-normal leading-relaxed">
+                <div className="p-4 sm:p-5 rounded-2xl glass-bar text-xs sm:text-sm text-white/90 font-normal leading-relaxed">
                   <div className="flex gap-2 items-start">
                     <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                     <span>{QUESTIONS[currentQuestionIndex].scenario}</span>

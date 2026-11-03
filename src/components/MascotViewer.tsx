@@ -59,61 +59,119 @@ export const MascotViewer = forwardRef<MascotViewerRef, {}>((_, ref) => {
     let currentX = 0;
     let currentY = 0;
     let animationFrameId: number;
+    let isGyroActive = false;
+    let baseGamma: number | null = null;
+    let baseBeta: number | null = null;
+    let startTime = performance.now();
 
     const handleMouseMove = (e: MouseEvent) => {
+      // If smartphone gyroscope is active, do not allow synthetic mouse events to override it
+      if (isGyroActive) return;
+
       const { innerWidth, innerHeight } = window;
-      // Normalize coordinates to [-1, 1]
       const nx = (e.clientX / innerWidth) * 2 - 1;
       const ny = (e.clientY / innerHeight) * 2 - 1;
 
-      // Subtle target translation (max 18px horizontal, 12px vertical)
-      targetX = nx * 18;
-      targetY = ny * 12;
+      targetX = nx * 28;
+      targetY = ny * 20;
     };
 
     const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
       const { beta, gamma } = e;
-      if (beta === null || gamma === null) return;
+      if (beta === null || gamma === null || beta === undefined || gamma === undefined) return;
 
-      // Clamp values for safety
-      const clampedGamma = Math.max(-30, Math.min(30, gamma));
-      const clampedBeta = Math.max(15, Math.min(75, beta)) - 45; // Center around 45 deg tilt
+      // Mark gyro as active so synthetic mouse events don't override smartphone tilt
+      isGyroActive = true;
 
-      // Normalize and scale to target values
-      targetX = (clampedGamma / 30) * 20;
-      targetY = (clampedBeta / 30) * 15;
+      // Auto-calibrate to the user's natural resting holding angle on the first event
+      if (baseGamma === null || baseBeta === null) {
+        baseGamma = gamma;
+        baseBeta = beta;
+      } else {
+        // Ultra-slow adaptive drift to smoothly re-center if the user changes sitting posture
+        baseGamma += (gamma - baseGamma) * 0.003;
+        baseBeta += (beta - baseBeta) * 0.003;
+      }
+
+      // Calculate tilt relative to the user's holding angle
+      const deltaGamma = gamma - baseGamma;
+      const deltaBeta = beta - baseBeta;
+
+      // Clamp tilt delta to a comfortable, expressive range (±35 degrees of hand movement)
+      const clampedGamma = Math.max(-35, Math.min(35, deltaGamma));
+      const clampedBeta = Math.max(-35, Math.min(35, deltaBeta));
+
+      // Translate phone angle into responsive 3D mascot displacement
+      targetX = (clampedGamma / 35) * 38;
+      targetY = (clampedBeta / 35) * 28;
     };
 
-    const updateParallax = () => {
-      // Lerp (Linear Interpolation) for fluid smooth ease-out movement
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
+    // On iOS Safari 13+, DeviceOrientation requires user permission via user gesture
+    const requestIosGyroPermission = () => {
+      if (
+        typeof DeviceOrientationEvent !== 'undefined' &&
+        typeof (DeviceOrientationEvent as any).requestPermission === 'function'
+      ) {
+        (DeviceOrientationEvent as any)
+          .requestPermission()
+          .then((state: string) => {
+            if (state === 'granted') {
+              window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+            }
+          })
+          .catch(() => {
+            // Handled silently
+          });
+      }
+    };
+
+    const updateParallax = (now: number) => {
+      // Subtle organic breathing oscillation when resting
+      const elapsed = (now - startTime) * 0.0018;
+      const idleFloatX = Math.sin(elapsed * 0.8) * 2.5;
+      const idleFloatY = Math.cos(elapsed * 1.1) * 3.0;
+
+      // Lerp for smooth 60fps/120fps motion response
+      currentX += (targetX + idleFloatX - currentX) * 0.09;
+      currentY += (targetY + idleFloatY - currentY) * 0.09;
 
       if (innerContainerRef.current) {
-        // Subtle 3D tilting + translation for premium feel
-        const rotateY = currentX * 0.4;
-        const rotateX = -currentY * 0.4;
+        // 3D holographic tilt + translation following the phone's physical angle
+        const rotateY = currentX * 0.6;
+        const rotateX = -currentY * 0.55;
         innerContainerRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
       }
 
       if (glowRef.current) {
-        // Glow moves in opposite direction to create real depth
-        glowRef.current.style.transform = `translate3d(${-currentX * 1.8}px, ${-currentY * 1.8}px, 0)`;
+        // Volumetric optical glow shifts inversely for holographic depth
+        glowRef.current.style.transform = `translate3d(${-currentX * 1.5}px, ${-currentY * 1.5}px, 0)`;
       }
 
       animationFrameId = requestAnimationFrame(updateParallax);
     };
 
-    // Attach listeners
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('deviceorientation', handleDeviceOrientation);
-    
+    // Listen to mouse for desktop
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    // Automatic immediate orientation listening for Android, Chrome, and all standard mobile browsers
+    window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+    window.addEventListener('deviceorientationabsolute', handleDeviceOrientation as any, { passive: true });
+
+    // iOS user gesture listeners to unlock gyro permission seamlessly on first tap/scroll
+    window.addEventListener('touchstart', requestIosGyroPermission, { once: true, passive: true });
+    window.addEventListener('pointerdown', requestIosGyroPermission, { once: true, passive: true });
+    window.addEventListener('click', requestIosGyroPermission, { once: true });
+
     // Start animation loop
-    updateParallax();
+    animationFrameId = requestAnimationFrame(updateParallax);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('deviceorientation', handleDeviceOrientation);
+      window.removeEventListener('deviceorientationabsolute', handleDeviceOrientation as any);
+      window.removeEventListener('touchstart', requestIosGyroPermission);
+      window.removeEventListener('pointerdown', requestIosGyroPermission);
+      window.removeEventListener('click', requestIosGyroPermission);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

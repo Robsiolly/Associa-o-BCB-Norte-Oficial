@@ -535,7 +535,7 @@ export default function App() {
                 ref={moment1Ref}
                 className="absolute bottom-16 sm:bottom-20 inset-x-3 sm:inset-x-6 max-w-md mx-auto w-[94%] sm:w-[85%] lg:absolute lg:bottom-auto lg:inset-x-auto lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[42%] lg:max-w-[480px] flex flex-col justify-center text-left pointer-events-auto lg:mr-auto will-change-[transform,opacity,filter]"
               >
-                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/15 shadow-[0_25px_50px_rgba(0,0,0,0.9)] max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
+                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl glass-card-3d glass-card-red glass-sheen max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
                   <div className="inline-flex items-center gap-2 mb-2 sm:mb-3 px-2.5 sm:px-3 py-1 rounded-full border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-semibold w-fit">
                     <Shield className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-red-500" />
                     ASSOCIAÇÃO BCB NORTE
@@ -558,7 +558,7 @@ export default function App() {
                       href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20inscrever%20um%20aluno%20no%20Bombeiro%20Mirim%20BCB%20Norte!"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase shadow-xl shadow-red-600/30 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-center cursor-pointer whitespace-nowrap"
+                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl glass-btn-primary text-white font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase shadow-xl transition-all duration-300 text-center cursor-pointer whitespace-nowrap"
                     >
                       INSCREVER BOMBEIRO MIRIM
                     </a>
@@ -566,7 +566,7 @@ export default function App() {
                       href="https://wa.me/5511954001865?text=Olá,%20gostaria%20de%20ser%20um%20apoiador%20da%20Associação%20BCB%20Norte!"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl border border-amber-500/40 hover:border-amber-500 bg-black/40 hover:bg-amber-500/10 text-amber-400 font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-center cursor-pointer whitespace-nowrap"
+                      className="px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl glass-btn-amber text-amber-300 font-mono text-[9px] sm:text-[11px] tracking-widest font-semibold uppercase transition-all duration-300 text-center cursor-pointer whitespace-nowrap"
                     >
                       SEJA UM APOIADOR
                     </a>
@@ -579,7 +579,7 @@ export default function App() {
                 ref={moment2Ref}
                 className="absolute bottom-16 sm:bottom-20 inset-x-3 sm:inset-x-6 max-w-md mx-auto w-[94%] sm:w-[85%] lg:absolute lg:bottom-auto lg:inset-x-auto lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[42%] lg:max-w-[480px] flex flex-col justify-center text-left pointer-events-auto lg:ml-auto will-change-[transform,opacity,filter]"
               >
-                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl bg-black/90 backdrop-blur-2xl border border-amber-500/30 shadow-[0_25px_50px_rgba(0,0,0,0.9)] max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
+                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl glass-card-3d glass-card-gold glass-sheen max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
                   <div className="inline-flex items-center gap-2 mb-2 sm:mb-3 px-2.5 sm:px-3 py-1 rounded-full border border-amber-500/30 bg-amber-950/40 text-amber-400 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-semibold w-fit">
                     <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-500 animate-spin-slow" />
                     PREPARO DE IMPACTO
@@ -616,7 +616,7 @@ export default function App() {
                 ref={moment3Ref}
                 className="absolute bottom-16 sm:bottom-20 inset-x-3 sm:inset-x-6 max-w-md mx-auto w-[94%] sm:w-[85%] lg:absolute lg:bottom-auto lg:inset-x-auto lg:left-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[42%] lg:max-w-[480px] flex flex-col justify-center text-left pointer-events-auto lg:mr-auto will-change-[transform,opacity,filter]"
               >
-                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl bg-black/90 backdrop-blur-2xl border border-blue-500/30 shadow-[0_25px_50px_rgba(0,0,0,0.9)] max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
+                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl glass-card-3d glass-sheen max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
                   <div className="inline-flex items-center gap-2 mb-2 sm:mb-3 px-2.5 sm:px-3 py-1 rounded-full border border-blue-500/30 bg-blue-950/40 text-blue-400 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-semibold w-fit">
                     <Award className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-blue-400" />
                     MUDANÇA DE PERSPECTIVA
@@ -632,19 +632,19 @@ export default function App() {
                     ref={indicatorCardsRef}
                     className="grid grid-cols-3 gap-1 sm:gap-2 w-full"
                   >
-                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-0.5 shadow-lg">
+                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl glass-btn flex flex-col gap-0.5 shadow-lg">
                       <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
                       <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold tracking-wider text-white uppercase truncate">FORMAÇÃO</h4>
                       <p className="text-[7px] sm:text-[8px] md:text-[9px] text-white/70 leading-tight">Cidadania viva.</p>
                     </div>
                     
-                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-0.5 shadow-lg">
+                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl glass-btn flex flex-col gap-0.5 shadow-lg">
                       <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500" />
                       <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold tracking-wider text-white uppercase truncate">DISCIPLINA</h4>
                       <p className="text-[7px] sm:text-[8px] md:text-[9px] text-white/70 leading-tight">Valores reais.</p>
                     </div>
 
-                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col gap-0.5 shadow-lg">
+                    <div className="p-1.5 sm:p-2.5 md:p-3 rounded-xl glass-btn flex flex-col gap-0.5 shadow-lg">
                       <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
                       <h4 className="text-[8px] sm:text-[9px] md:text-[10px] font-mono font-bold tracking-wider text-white uppercase truncate">FUTURO</h4>
                       <p className="text-[7px] sm:text-[8px] md:text-[9px] text-white/70 leading-tight">Oportunidade.</p>
@@ -658,7 +658,7 @@ export default function App() {
                 ref={moment4Ref}
                 className="absolute bottom-16 sm:bottom-20 inset-x-3 sm:inset-x-6 max-w-md mx-auto w-[94%] sm:w-[85%] lg:absolute lg:bottom-auto lg:inset-x-auto lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[42%] lg:max-w-[480px] flex flex-col justify-center text-left pointer-events-auto lg:ml-auto will-change-[transform,opacity,filter]"
               >
-                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl bg-black/90 backdrop-blur-2xl border border-red-500/30 shadow-[0_25px_50px_rgba(0,0,0,0.9)] max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
+                <div className="p-3.5 sm:p-6 md:p-8 rounded-2xl glass-card-3d glass-card-red glass-sheen max-h-[calc(100vh-210px)] overflow-y-auto sm:overflow-visible">
                   <div className="inline-flex items-center gap-2 mb-2 sm:mb-3 px-2.5 sm:px-3 py-1 rounded-full border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-[9px] sm:text-[10px] tracking-[0.25em] font-semibold w-fit">
                     <AlertCircle className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-red-500 animate-pulse" />
                     JUNTE-SE À CAUSA

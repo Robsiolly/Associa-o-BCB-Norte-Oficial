@@ -346,12 +346,22 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
     return () => clearInterval(timer);
   }, [isPlaying, items.length]);
 
-  // Keep thumbnail in view
+  // Keep thumbnail in view inside the horizontal bar ONLY (never scroll the window)
   useEffect(() => {
     if (thumbnailBarRef.current) {
-      const activeThumb = thumbnailBarRef.current.children[carouselIndex] as HTMLElement;
+      const container = thumbnailBarRef.current;
+      const activeThumb = container.children[carouselIndex] as HTMLElement;
       if (activeThumb) {
-        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const containerRect = container.getBoundingClientRect();
+        const thumbRect = activeThumb.getBoundingClientRect();
+        const currentScrollLeft = container.scrollLeft;
+        const relativeThumbLeft = thumbRect.left - containerRect.left + currentScrollLeft;
+        const targetScrollLeft = relativeThumbLeft - (containerRect.width / 2) + (thumbRect.width / 2);
+
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
+          behavior: 'smooth'
+        });
       }
     }
   }, [carouselIndex]);
@@ -457,7 +467,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
         </div>
 
         {/* ----------------- FEATURED CAROUSEL COMPONENT ----------------- */}
-        <div className="mb-12 rounded-3xl border border-amber-500/30 bg-zinc-950/80 p-3 sm:p-6 backdrop-blur-xl shadow-[0_0_50px_rgba(245,158,11,0.12)]">
+        <div className="mb-12 rounded-3xl glass-card-3d glass-card-gold glass-sheen p-3 sm:p-6 shadow-[0_0_50px_rgba(255,215,0,0.15)]">
           
           {/* Carousel Top Controls Bar with Glass Effect */}
           <div className="flex items-center justify-between gap-3 mb-4 p-2.5 rounded-2xl glass-bar">
@@ -647,7 +657,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/70 hover:border-amber-500/60 transition-all duration-500 cursor-pointer shadow-lg hover:shadow-[0_0_25px_rgba(245,158,11,0.2)] flex flex-col justify-between"
+              className="group relative rounded-2xl overflow-hidden glass-card-3d glass-sheen cursor-pointer flex flex-col justify-between"
             >
               {/* Image Preview Container */}
               <div className="aspect-[16/10] w-full overflow-hidden bg-black/60 relative">
@@ -709,7 +719,7 @@ export function GalleryPage({ onBack }: { onBack?: () => void } = {}) {
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-5xl bg-zinc-950 border border-amber-500/40 rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.95)] max-h-[95vh] flex flex-col"
+            className="relative w-full max-w-5xl glass-card-3d glass-card-gold rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.95)] max-h-[95vh] flex flex-col"
           >
             {/* Modal Header Bar with Glass Effect */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 glass-bar">

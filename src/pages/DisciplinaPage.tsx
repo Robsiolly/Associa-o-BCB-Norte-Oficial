@@ -26,7 +26,7 @@ export function DisciplinaPage() {
           </Link>
         </div>
 
-        <div className="p-6 sm:p-10 md:p-12 rounded-3xl bg-zinc-950/90 backdrop-blur-2xl border border-red-500/30 shadow-[0_0_50px_rgba(220,38,38,0.15)]">
+        <div className="p-6 sm:p-10 md:p-12 rounded-3xl glass-card-3d glass-card-red glass-sheen shadow-[0_0_50px_rgba(214,40,40,0.2)]">
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border border-red-500/30 bg-red-950/40 text-red-400 font-mono text-xs tracking-[0.25em] font-semibold">
             <Shield className="w-4 h-4 text-red-500" />
             SEÇÃO EXCLUSIVA • DISCIPLINA
@@ -44,7 +44,7 @@ export function DisciplinaPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-6 rounded-2xl glass-bar">
               <div className="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-400 mb-4">
                 <Award className="w-6 h-6" />
               </div>
@@ -54,7 +54,7 @@ export function DisciplinaPage() {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-6 rounded-2xl glass-bar">
               <div className="w-12 h-12 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-4">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
